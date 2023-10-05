@@ -1,0 +1,6 @@
+const contract = new web3.eth.Contract(<compiledContract.abi>);
+const deployTransaction = contract.deploy({ data: <compiledContract.bytecode> });
+const gas = await deployTransaction.estimateGas();
+const accounts = await web3.eth.getAccounts();
+const deploy = await deployTransaction.send({ from: accounts[0], gas });
+const contractAddress = deploy.options.address;
